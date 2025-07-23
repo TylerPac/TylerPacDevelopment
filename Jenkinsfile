@@ -35,13 +35,24 @@ pipeline {
             }
         }
 
-        stage('Build and Deploy Mainsite Docker Image') {
+        stage('Build and Deploy Backend Docker Image') {
             steps {
                 dir('mainsite') {
-                    sh 'docker build -t tylerpacdevwebsite-app .'
-                    sh 'docker stop TylerPacDevWebsite || true'
-                    sh 'docker rm TylerPacDevWebsite || true'
-                    sh 'docker run -d --name TylerPacDevWebsite -p 8081:8080 --network infrastructure-shared_main_backend tylerpacdevwebsite-app'
+                    sh 'docker build -t tylerpacdevwebsite-backend .'
+                    sh 'docker stop tylerpacdevwebsite-backend || true'
+                    sh 'docker rm tylerpacdevwebsite-backend || true'
+                    sh 'docker run -d --name tylerpacdevwebsite-backend -p 8081:8080 --network backend tylerpacdevwebsite-backend'
+                }
+            }
+        }
+
+        stage('Build and Deploy Frontend Docker Image') {
+            steps {
+                dir('frontend') {
+                    sh 'docker build -t tylerpacdevwebsite-frontend .'
+                    sh 'docker stop tylerpacdevwebsite-frontend || true'
+                    sh 'docker rm tylerpacdevwebsite-frontend || true'
+                    sh 'docker run -d --name tylerpacdevwebsite-frontend -p 3000:80 --network backend tylerpacdevwebsite-frontend'
                 }
             }
         }
@@ -58,7 +69,7 @@ pipeline {
 
     post {
         success {
-            echo "✅ MySQL container is running."
+            echo "✅ Deployment successful."
             httpRequest httpMode: 'POST',
                         contentType: 'APPLICATION_JSON',
                         requestBody: """{
@@ -71,7 +82,7 @@ pipeline {
                         url: 'https://n8n.tylerpac.dev/webhook/TylerPacDevelopment'
         }
         failure {
-            echo "❌ Failed to bring up MySQL."
+            echo "❌ Deployment failed."
             httpRequest httpMode: 'POST',
                         contentType: 'APPLICATION_JSON',
                         requestBody: """{
