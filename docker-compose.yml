@@ -1,0 +1,21 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: shared_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: Kora4386!
+      MYSQL_USER: sirpacster
+      MYSQL_PASSWORD: Kora4386!
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - backend
+
+volumes:
+  mysql_data:
+
+networks:
+  backend:
