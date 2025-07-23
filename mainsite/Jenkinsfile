@@ -6,14 +6,15 @@ pipeline {
   }
 
   environment {
-    IMAGE_NAME = "TylerPacDevelopment/mainsite"
+    IMAGE_NAME = "tylerpacdevelopment/mainsite"
+    CONTAINER_NAME = "mainsite"
   }
 
   stages {
-    stage('Build WAR') {
+    stage('Clean & Build JAR') {
       steps {
         dir('mainsite') {
-          sh 'mvn clean package'
+          sh 'mvn clean package -DskipTests'
         }
       }
     }
@@ -28,39 +29,51 @@ pipeline {
 
     stage('Deploy Container') {
       steps {
-        sh "docker stop ${IMAGE_NAME} || true"
-        sh "docker rm ${IMAGE_NAME} || true"
-        sh "docker run -d --name ${IMAGE_NAME} -p 8080:8080 --network=backend ${IMAGE_NAME}:latest"
+        script {
+          // Stop and remove existing container
+          sh "docker stop ${CONTAINER_NAME} || true"
+          sh "docker rm ${CONTAINER_NAME} || true"
+
+          // Run new container
+          sh """
+            docker run -d \
+              --name ${CONTAINER_NAME} \
+              -p 8080:8080 \
+              --network=backend \
+              ${IMAGE_NAME}:latest
+          """
+        }
       }
     }
   }
 
   post {
     success {
-          echo "✅ mainsite deployed."
-          httpRequest httpMode: 'POST',
-                      contentType: 'APPLICATION_JSON',
-                      requestBody: """{
-                          "job": "${env.JOB_NAME}",
-                          "branch": "${env.BRANCH_NAME}",
-                          "build": "${env.BUILD_NUMBER}",
-                          "status": "SUCCESS",
-                          "url": "${env.BUILD_URL}"
-                      }""",
-                      url: 'https://n8n.tylerpac.dev/webhook/TylerPacDevelopment'
-      }
-      failure {
-          echo "❌ mainsite Failed to deploy."
-          httpRequest httpMode: 'POST',
-                      contentType: 'APPLICATION_JSON',
-                      requestBody: """{
-                          "job": "${env.JOB_NAME}",
-                          "branch": "${env.BRANCH_NAME}",
-                          "build": "${env.BUILD_NUMBER}",
-                          "status": "FAILURE",
-                          "url": "${env.BUILD_URL}"
-                      }""",
-                      url: 'https://n8n.tylerpac.dev/webhook/TylerPacDevelopment'
-      }
+      echo "✅ mainsite deployed."
+      httpRequest httpMode: 'POST',
+        contentType: 'APPLICATION_JSON',
+        requestBody: """{
+            "job": "${env.JOB_NAME}",
+            "branch": "${env.BRANCH_NAME}",
+            "build": "${env.BUILD_NUMBER}",
+            "status": "SUCCESS",
+            "url": "${env.BUILD_URL}"
+        }""",
+        url: 'https://n8n.tylerpac.dev/webhook/TylerPacDevelopment'
+    }
+
+    failure {
+      echo "❌ mainsite Failed to deploy."
+      httpRequest httpMode: 'POST',
+        contentType: 'APPLICATION_JSON',
+        requestBody: """{
+            "job": "${env.JOB_NAME}",
+            "branch": "${env.BRANCH_NAME}",
+            "build": "${env.BUILD_NUMBER}",
+            "status": "FAILURE",
+            "url": "${env.BUILD_URL}"
+        }""",
+        url: 'https://n8n.tylerpac.dev/webhook/TylerPacDevelopment'
+    }
   }
 }
