@@ -6,13 +6,12 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.5.3</version>
-		<relativePath/> <!-- lookup parent from repository -->
-		<!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 	<groupId>TylerPacDevelopment</groupId>
-	<artifactId>Mainsite</artifactId>
+	<artifactId>mainsite</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Mainsite</name>
+	<name>mainsite</name>
 	<description>Tyler Pac Development Website</description>
 	<url/>
 	<licenses>
@@ -67,9 +66,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<mainClass>TylerPacDevelopment.Mainsite.MainsiteApplication</mainClass>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
