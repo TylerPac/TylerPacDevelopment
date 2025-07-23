@@ -34,7 +34,13 @@ pipeline {
                 }
             }
         }
-
+        stage('Build and Deploy App') {
+            steps {
+                echo "🚀 Bringing up all services with Docker Compose..."
+                sh 'docker compose down || true'
+                sh 'docker compose up -d --build'
+            }
+        }
         stage('Build and Deploy Backend Docker Image') {
             steps {
                 dir('mainsite') {
