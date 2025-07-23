@@ -38,10 +38,10 @@ pipeline {
         stage('Build and Deploy Mainsite Docker Image') {
             steps {
                 dir('mainsite') {
-                    sh 'docker build -t TylerPacDevWebsite-app .'
+                    sh 'docker build -t tylerpacdevwebsite-app .'
                     sh 'docker stop TylerPacDevWebsite || true'
                     sh 'docker rm TylerPacDevWebsite || true'
-                    sh 'docker run -d --name TylerPacDevWebsite -p 8081:8080 --network infrastructure-shared_main_backend TylerPacDevWebsite-app'
+                    sh 'docker run -d --name TylerPacDevWebsite -p 8081:8080 --network infrastructure-shared_main_backend tylerpacdevwebsite-app'
                 }
             }
         }
