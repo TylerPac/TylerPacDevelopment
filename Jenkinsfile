@@ -29,7 +29,7 @@ pipeline {
 
         stage('Build Mainsite App') {
             steps {
-                dir('Mainsite') {
+                dir('mainsite') {
                     sh 'mvn clean package -DskipTests'    // Assuming Maven Wrapper is used And skipTests is desired
                 }
             }
@@ -37,7 +37,7 @@ pipeline {
 
         stage('Build and Deploy Mainsite Docker Image') {
             steps {
-                dir('Mainsite') {
+                dir('mainsite') {
                     sh 'docker build -t TylerPacDevWebsite-app .'
                     sh 'docker stop TylerPacDevWebsite || true'
                     sh 'docker rm TylerPacDevWebsite || true'
