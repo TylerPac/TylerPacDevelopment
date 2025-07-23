@@ -5,6 +5,7 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: Kora4386!
+      MYSQL_DATABASE: SirPacsterHomeLabDatabase
       MYSQL_USER: sirpacster
       MYSQL_PASSWORD: Kora4386!
     ports:
