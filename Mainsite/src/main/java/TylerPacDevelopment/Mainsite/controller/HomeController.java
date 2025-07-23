@@ -1,4 +1,4 @@
-package TylerPacDevelopment.Mainsite.controller;
+package tylerpacdevelopment.mainsite.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
