@@ -28,7 +28,7 @@ pipeline {
         stage('Build Mainsite App') {
             steps {
                 dir('Mainsite') {
-                    sh './mvnw clean package -DskipTests'    // Assuming Maven Wrapper is used And skipTests is desired
+                    sh 'mvn clean package -DskipTests'    // Assuming Maven Wrapper is used And skipTests is desired
                 }
             }
         }
