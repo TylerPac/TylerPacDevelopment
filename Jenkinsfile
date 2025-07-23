@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Start Shared MySQL DB') {
       steps {
-        sh 'docker compose up -d mysql'
+        sh 'docker-compose up -d mysql'
       }
     }
   }
