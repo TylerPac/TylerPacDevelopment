@@ -15,7 +15,7 @@ function Projects() {
     },
     {
       id: 2,
-      title: "E-Commerce Platform",
+      title: "Dynamic Buildings",
       description: "A modern e-commerce solution built with microservices architecture. Includes user authentication, payment processing, inventory management, and real-time order tracking.",
       languages: ["TypeScript", "Python", "SQL"],
       tools: ["Next.js", "Django", "PostgreSQL", "Redis", "Stripe API"],
