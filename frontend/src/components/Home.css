@@ -33,7 +33,7 @@
   padding: 0 1rem; /* adds horizontal breathing room on mobile */
   text-align: left;
 }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .home-content {
         width: 100%;
         max-width: 800px; /* was 600px, now a wider but still readable width */
