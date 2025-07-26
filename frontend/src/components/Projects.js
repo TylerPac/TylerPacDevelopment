@@ -8,12 +8,12 @@ function Projects() {
       title: "TylerPac Development Site",
       description: "A full-stack web application showcasing my development portfolio. Features a React frontend with Spring Boot backend, containerized with Docker for seamless deployment.",
       languages: ["JavaScript", "Java", "CSS", "HTML"],
-      tools: ["React", "Spring Boot", "Docker", "Maven", "Git"],
+      tools: ["React", "Spring Boot", "Docker", "Maven", "Git", "Jenkins"],
       githubUrl: "https://github.com/TylerPac/TylerPacDevelopment",
       demoUrl: null,
-      image: "/api/placeholder/400/250"
-    },
-    {
+      image: "/Projects/TylerPacDevelopmentSite.png"
+    }/*,
+    { 
       id: 2,
       title: "Dynamic Buildings",
       description: "A modern e-commerce solution built with microservices architecture. Includes user authentication, payment processing, inventory management, and real-time order tracking.",
@@ -43,6 +43,7 @@ function Projects() {
       demoUrl: "https://weather.tylerpac.dev",
       image: "/api/placeholder/400/250"
     }
+    */
   ];
 
   const handleGitHubClick = (url) => {
