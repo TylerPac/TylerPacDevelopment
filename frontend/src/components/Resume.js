@@ -44,10 +44,10 @@ function Resume() {
               title="Tyler Pac Resume"
             >
               <p>
-                Your browser does not support PDFs. 
-                <button onClick={handleDownloadResume} style={{marginLeft: '10px', color: '#667eea'}}>
-                  Download the PDF here
-                </button>
+                PDF preview is not supported on your device.
+                <a href="/resume/Tyler_Pac_Resume.pdf" download style={{ color: '#61dafb', marginLeft: '10px' }}>
+                  Download PDF
+                </a>
               </p>
             </iframe>
           </div>
