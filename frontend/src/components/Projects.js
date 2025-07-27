@@ -12,17 +12,17 @@ function Projects() {
       githubUrl: "https://github.com/TylerPac/TylerPacDevelopment",
       demoUrl: null,
       image: "/Projects/TylerPacDevelopmentSite.png"
-    }/*,
+    },
     { 
       id: 2,
-      title: "Dynamic Buildings",
-      description: "A modern e-commerce solution built with microservices architecture. Includes user authentication, payment processing, inventory management, and real-time order tracking.",
-      languages: ["TypeScript", "Python", "SQL"],
-      tools: ["Next.js", "Django", "PostgreSQL", "Redis", "Stripe API"],
-      githubUrl: "https://github.com/TylerPac/ecommerce-platform",
-      demoUrl: "https://demo-ecommerce.tylerpac.dev",
+      title: "Momentum Workout and Data Tracking App",
+      description: "A comprehensive fitness tracking application built with Java servlets and JSP. Features user authentication, workout logging, data analytics, and progress tracking with Hibernate ORM for database management.",
+      languages: ["Java", "JavaScript", "HTML", "CSS", "SQL"],
+      tools: ["Java Servlets", "JSP", "Hibernate", "MySQL", "Maven", "Docker", "Tomcat", "Git", "Jenkins"],
+      githubUrl: "https://github.com/TylerPac/MomentumDocker/",
+      demoUrl: "https://momentum.tylerpac.dev/",
       image: "/api/placeholder/400/250"
-    },
+    }/*,
     {
       id: 3,
       title: "Task Management API",
