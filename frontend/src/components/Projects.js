@@ -21,7 +21,7 @@ function Projects() {
       tools: ["Java Servlets", "JSP", "Hibernate", "MySQL", "Maven", "Docker", "Tomcat", "Git", "Jenkins"],
       githubUrl: "https://github.com/TylerPac/MomentumDocker/",
       demoUrl: "https://momentum.tylerpac.dev/",
-      image: "/api/placeholder/400/250"
+      image: "/Projects/Momentum.png"
     }/*,
     {
       id: 3,
