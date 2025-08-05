@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="004e7639-571a-4e8c-a990-f1899d963673" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainsite/Jenkinsfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainsite/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mainsite/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainsite/src/main/java/tylerpac/dev/mainsite/MainsiteApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainsite/src/main/java/tylerpac/dev/mainsite/ServletInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainsite/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mainsite/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainsite/src/test/java/tylerpac/dev/mainsite/MainsiteApplicationTests.java" beforeDir="false" />
-    </list>
+    <list default="true" id="004e7639-571a-4e8c-a990-f1899d963673" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,6 +68,7 @@
       <workItem from="1753241868737" duration="1328000" />
       <workItem from="1753250207682" duration="27000" />
       <workItem from="1753250241819" duration="15000" />
+      <workItem from="1754411767664" duration="19000" />
     </task>
     <servers />
   </component>

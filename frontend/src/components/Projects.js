@@ -22,17 +22,17 @@ function Projects() {
       githubUrl: "https://github.com/TylerPac/MomentumDocker/",
       demoUrl: "https://momentum.tylerpac.dev/",
       image: "/Projects/Momentum.png"
-    }/*,
+    },
     {
       id: 3,
-      title: "Task Management API",
-      description: "RESTful API for task and project management with team collaboration features. Implements JWT authentication, role-based permissions, and real-time notifications.",
-      languages: ["Java", "SQL"],
-      tools: ["Spring Boot", "MySQL", "JWT", "Maven", "Swagger"],
-      githubUrl: "https://github.com/TylerPac/task-management-api",
+      title: "ETL Pipeline Automation with Apache Airflow and Kubernetes",
+      description: "Containerized Apache Airflow workflow using Kubernetes (Kind in Docker) for photovoltaic research data.",
+      languages: ["Python", "MySQL", "SQL"],
+      tools: ["Docker", "MySQL", "Kubernetes", "Helm", "Airflow", "Git"],
+      githubUrl: "https://github.com/TylerPac/airflow",
       demoUrl: null,
-      image: "/api/placeholder/400/250"
-    },
+      image: "/Projects/FSEClogo.png"
+    }/*,
     {
       id: 4,
       title: "Weather Dashboard",
