@@ -6,7 +6,7 @@ function Projects() {
     { 
       id: 2,
       title: "Momentum Workout and Data Tracking App",
-      description: "A comprehensive fitness tracking application built with Java servlets and JSP. Features user authentication, workout logging, data analytics, and progress tracking with Hibernate ORM for database management.",
+      description: "A comprehensive fitness tracking application built with Java servlets and JSP. Features user authentication, workout logging, data analytics, and progress tracking with Hibernate ORM for database management. Use Username: admin / Password: admin to log in and explore the application.",
       languages: ["Java", "JavaScript", "HTML", "CSS", "SQL"],
       tools: ["Java Servlets", "JSP", "Hibernate", "MySQL", "Maven", "Docker", "Tomcat", "Git", "Jenkins"],
       githubUrl: "https://github.com/TylerPac/MomentumDocker/",
@@ -27,7 +27,7 @@ function Projects() {
     {
       id: 1,
       title: "TylerPac Development Site",
-      description: "A full-stack web application showcasing my development portfolio. Features a React frontend with Spring Boot backend, containerized with Docker for seamless deployment. Use admin/admin to log in and explore the application.",
+      description: "A full-stack web application showcasing my development portfolio. Features a React frontend with Spring Boot backend, containerized with Docker for seamless deployment.",
       languages: ["JavaScript", "Java", "CSS", "HTML"],
       tools: ["React", "Spring Boot", "Docker", "Maven", "Git", "Jenkins"],
       githubUrl: "https://github.com/TylerPac/TylerPacDevelopment",
