@@ -27,7 +27,7 @@ function Projects() {
     {
       id: 1,
       title: "TylerPac Development Site",
-      description: "A full-stack web application showcasing my development portfolio. Features a React frontend with Spring Boot backend, containerized with Docker for seamless deployment.",
+      description: "A full-stack web application showcasing my development portfolio. Features a React frontend with Spring Boot backend, containerized with Docker for seamless deployment. Use admin/admin to log in and explore the application.",
       languages: ["JavaScript", "Java", "CSS", "HTML"],
       tools: ["React", "Spring Boot", "Docker", "Maven", "Git", "Jenkins"],
       githubUrl: "https://github.com/TylerPac/TylerPacDevelopment",
