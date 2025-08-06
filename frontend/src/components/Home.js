@@ -1,43 +1,48 @@
-import React, { useEffect, useState } from 'react';
-import './Home.css'; // Optional: for clean styling
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './Home.css';
 
 function Home() {
-  const [message, setMessage] = useState('Loading...');
-  const apiBase = process.env.REACT_APP_API_URL;
+  const handleResumeView = () => {
+    window.open('/resume/Tyler_Pac_Resume.pdf', '_blank');
+  };
 
-  useEffect(() => {
-    fetch(`${apiBase}/api/hello`)
-      .then(res => res.json())
-      .then(data => setMessage(data.message))
-      .catch(err => {
-        console.error('Failed to fetch:', err);
-        setMessage('🚧 Backend currently unavailable. Check back soon!');
-      });
-  }, [apiBase]);
+  const handleResumeDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/resume/Tyler_Pac_Resume.pdf';
+    link.download = 'Tyler_Pac_Resume.pdf';
+    link.click();
+  };
 
   return (
     <div className="home">
       <header className="App-header">
-        <h1>Tyler Pac</h1>
-        <p className="tagline">DevOps Software Engineer | Full-Stack Developer | CI/CD & Infrastructure Specialist</p>
-
-        
-        <div className="home-content">
-          <p>
-            I’m a <strong>DevOps Software Engineer</strong> with a comprehensive background in full-stack development, systems architecture, and deployment automation. I recently completed a <strong>Bachelor of Applied Science in Computing Technology and Software Development</strong>, equipping me with both theoretical knowledge and practical experience across modern software ecosystems.
-          </p>
-          <p>
-            My expertise spans a wide range of technologies including <strong>React</strong>, <strong>Spring Boot</strong>, <strong>MySQL</strong>, <strong>Docker</strong>, <strong>Kubernetes</strong>, and <strong>Jenkins</strong>. I have experience designing and deploying scalable applications, streamlining CI/CD pipelines, and implementing infrastructure solutions that support long-term growth and maintainability.
-          </p>
-          <p>
-            I’m actively seeking opportunities where I can contribute to impactful projects, collaborate with innovative teams, and apply my skills to drive measurable results. Please feel free to explore my <a href="/projects" className="highlight-link">projects</a>, view my <a href="/resume" className="highlight-link">resume</a>, or <a href="/contact" className="highlight-link">connect with me</a> to discuss potential collaborations or employment opportunities.
-          </p>
+        <div className="hero-section">
+          <h1>Tyler Pac</h1>
+          <p className="tagline">Software Engineer | DevOps Specialist | Full-Stack Developer</p>
         </div>
         <div className="intro-message">
-          <p>{message}</p>
+            <p>Graduated with my B.A.S. in Computing Technology and Software Development. I found my passion in coding 4 years ago and have been pursuing it ever since.</p>
+          </div>
+        <div className="home-content">
+          <div className="cta-section">
+            <div className="cta-buttons">
+              <Link to="/contact" className="cta-btn secondary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6A2,2 0 0,0 20,4M20,18H4V8L12,13L20,8V18M20,6L12,11L4,6V6H20V6Z"/>
+                </svg>
+                Contact Me
+              </Link>
+              
+              <button onClick={handleResumeView} className="cta-btn secondary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                </svg>
+                View Resume
+              </button>
+            </div>
+          </div>
         </div>
-        
-
       </header>
     </div>
   );

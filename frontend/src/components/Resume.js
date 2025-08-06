@@ -14,8 +14,7 @@ function Resume() {
     <div className="resume">
       <div className="resume-container">
         <header className="resume-header">
-          <h1>My Resume</h1>
-          <p>View and download my professional experience and qualifications</p>
+          <h1>Resume</h1>
         </header>
 
         <div className="resume-content">

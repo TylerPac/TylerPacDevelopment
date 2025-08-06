@@ -1,55 +1,331 @@
+/* Use the same color variables */
+:root {
+  --primary-black: #0a0a0a;
+  --secondary-black: #1a1a1a;
+  --dark-purple: #6b46c1;
+  --light-purple: #8b5cf6;
+  --hover-purple: #7c3aed;
+  --text-white: #ffffff;
+  --text-gray: #e5e7eb;
+  --shadow-color: rgba(107, 70, 193, 0.3);
+  --gradient-purple: linear-gradient(135deg, var(--dark-purple), var(--light-purple));
+}
+
 .App-header {
-  background-color: #282c34;
+  background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 100%);
   min-height: 100vh;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--text-white);
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section {
+  margin-bottom: 3rem;
+  animation: fadeInDown 0.8s ease both;
+}
+
+.hero-section h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  background: var(--gradient-purple);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 4px 20px var(--shadow-color);
+  animation: subtleGlow 4s ease-in-out infinite;
 }
 
 .tagline {
   font-size: 1.2rem;
   font-weight: 500;
   margin-top: 0.5rem;
-  color: #61dafb;
+  color: var(--light-purple);
+  text-shadow: 0 2px 10px var(--shadow-color);
+  animation: fadeInUp 0.8s ease 0.3s both;
+  margin-bottom: 0;
+}
+
+.App-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 70%, var(--shadow-color) 0%, transparent 50%),
+              radial-gradient(circle at 70% 30%, var(--shadow-color) 0%, transparent 50%);
+  opacity: 0.4;
+  animation: floatingGlow 8s ease-in-out infinite;
+}
+
+.App-header > * {
+  position: relative;
+  z-index: 1;
 }
 
 .intro-message {
-  margin-top: 1rem;
-  font-style: italic;
-  color: #aaaaaa;
-}
-.home-content {
-  width: 100%;
-  max-width: 1500px; /* was 600px, now a wider but still readable width */
-  margin-top: 2rem;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.75;
-  font-size: 2.0 rem;
-  padding: 0 1rem; /* adds horizontal breathing room on mobile */
-  text-align: left;
-}
-@media (max-width: 900px) {
-    .home-content {
-        width: 100%;
-        max-width: 800px; /* was 600px, now a wider but still readable width */
-        
-        margin: 0 auto;
-        margin-right: 1rem;
-        line-height: 1.7;
-        font-size: 1.05rem;
-        padding: 0 1rem; /* adds horizontal breathing room on mobile */
-        text-align: left;
-    }
+  margin: 2rem auto 3rem;
+  text-align: center;
+  max-width: 600px;
+  animation: fadeInUp 0.8s ease 0.6s both;
 }
 
+.intro-message p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-gray);
+  font-style: italic;
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.home-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(26, 26, 26, 0.7);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(107, 70, 193, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  animation: fadeInUp 0.8s ease 1.2s both;
+}
+
+.cta-section {
+  margin-top: 0;
+  text-align: center;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1.2rem 2.5rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  min-width: 180px;
+  justify-content: center;
+}
+
+.cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.cta-btn:hover::before {
+  left: 100%;
+}
+
+.cta-btn.primary {
+  background: var(--gradient-purple);
+  color: var(--text-white);
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.cta-btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+.cta-btn.secondary {
+  background: rgba(107, 70, 193, 0.2);
+  color: var(--light-purple);
+  border: 2px solid var(--dark-purple);
+}
+
+.cta-btn.secondary:hover {
+  background: var(--dark-purple);
+  color: var(--text-white);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.cta-btn.outline {
+  background: transparent;
+  color: var(--text-gray);
+  border: 2px solid rgba(107, 70, 193, 0.4);
+}
+
+.cta-btn.outline:hover {
+  background: rgba(107, 70, 193, 0.1);
+  color: var(--light-purple);
+  border-color: var(--light-purple);
+  transform: translateY(-3px);
+}
+
+.cta-btn svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.cta-btn:hover svg {
+  transform: scale(1.1);
+}
+
+@media (max-width: 900px) {
+  .home-content {
+    width: calc(100% - 2rem);
+    max-width: 600px;
+    margin: 2rem auto 0;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    padding: 2rem 1.5rem;
+  }
+}
 
 .highlight-link {
-  color: #61dafb;
-  text-decoration: underline;
+  color: var(--light-purple);
+  text-decoration: none;
   font-weight: bold;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.highlight-link::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-purple);
+  transition: width 0.3s ease;
+}
+
+.highlight-link:hover {
+  color: var(--text-white);
+  text-shadow: 0 0 10px var(--light-purple);
+  transform: translateY(-1px);
+}
+
+.highlight-link:hover::before {
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .App-header {
+    padding: 1rem;
+  }
+  
+  .hero-section h1 {
+    font-size: 2.8rem;
+  }
+  
+  .tagline {
+    font-size: 1.1rem;
+  }
+  
+  .home-content {
+    padding: 2rem;
+    margin: 1rem;
+  }
+  
+  .intro-summary p {
+    font-size: 1.1rem;
+  }
+  
+  .cta-buttons {
+    gap: 1rem;
+  }
+  
+  .cta-btn {
+    min-width: 140px;
+    padding: 0.9rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 2.2rem;
+  }
+  
+  .tagline {
+    font-size: 1rem;
+  }
+  
+  .home-content {
+    padding: 1.5rem 1rem;
+    margin: 1rem 0.5rem 0;
+    width: calc(100% - 1rem);
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .cta-btn {
+    width: 100%;
+    max-width: 280px;
+    min-width: auto;
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes floatingGlow {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+    opacity: 0.6;
+  }
 }

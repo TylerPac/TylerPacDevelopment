@@ -1,10 +1,28 @@
+/* Import the same color variables from Navigation.css */
+:root {
+  --primary-black: #0a0a0a;
+  --secondary-black: #1a1a1a;
+  --dark-purple: #6b46c1;
+  --light-purple: #8b5cf6;
+  --hover-purple: #7c3aed;
+  --text-white: #ffffff;
+  --text-gray: #e5e7eb;
+  --shadow-color: rgba(107, 70, 193, 0.3);
+  --gradient-purple: linear-gradient(135deg, var(--dark-purple), var(--light-purple));
+}
+
 .App {
   text-align: center;
+  background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 100%);
+  min-height: 100vh;
+  transition: all 0.3s ease;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  filter: drop-shadow(0 0 20px var(--shadow-color));
+  transition: all 0.3s ease;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,19 +31,62 @@
   }
 }
 
+.App-logo:hover {
+  filter: drop-shadow(0 0 30px var(--light-purple));
+  transform: scale(1.05);
+}
+
 .App-header {
-  background-color: #282c34;
+  background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--text-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.App-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, var(--shadow-color) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, var(--shadow-color) 0%, transparent 50%);
+  opacity: 0.3;
+  animation: backgroundFloat 10s ease-in-out infinite;
 }
 
 .App-link {
-  color: #61dafb;
+  color: var(--light-purple);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.App-link::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-purple);
+  transition: width 0.3s ease;
+}
+
+.App-link:hover {
+  color: var(--text-white);
+  text-shadow: 0 0 10px var(--light-purple);
+}
+
+.App-link:hover::before {
+  width: 100%;
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +96,23 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes backgroundFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.1);
+  }
+}
+
+/* Smooth scrolling for the entire app */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Add subtle animations to all transitions */
+*, *::before, *::after {
+  transition: all 0.3s ease;
 }

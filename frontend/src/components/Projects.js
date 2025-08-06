@@ -3,16 +3,6 @@ import './Projects.css';
 
 function Projects() {
   const projects = [
-    {
-      id: 1,
-      title: "TylerPac Development Site",
-      description: "A full-stack web application showcasing my development portfolio. Features a React frontend with Spring Boot backend, containerized with Docker for seamless deployment.",
-      languages: ["JavaScript", "Java", "CSS", "HTML"],
-      tools: ["React", "Spring Boot", "Docker", "Maven", "Git", "Jenkins"],
-      githubUrl: "https://github.com/TylerPac/TylerPacDevelopment",
-      demoUrl: null,
-      image: "/Projects/TylerPacDevelopmentSite.png"
-    },
     { 
       id: 2,
       title: "Momentum Workout and Data Tracking App",
@@ -31,8 +21,20 @@ function Projects() {
       tools: ["Docker", "MySQL", "Kubernetes", "Helm", "Airflow", "Git"],
       githubUrl: "https://github.com/TylerPac/airflow",
       demoUrl: null,
-      image: "/Projects/FSEClogo.png"
-    }/*,
+      image: "/Projects/FSEClogo.jpg",
+      imageClass: "etl-image"
+    },
+    {
+      id: 1,
+      title: "TylerPac Development Site",
+      description: "A full-stack web application showcasing my development portfolio. Features a React frontend with Spring Boot backend, containerized with Docker for seamless deployment.",
+      languages: ["JavaScript", "Java", "CSS", "HTML"],
+      tools: ["React", "Spring Boot", "Docker", "Maven", "Git", "Jenkins"],
+      githubUrl: "https://github.com/TylerPac/TylerPacDevelopment",
+      demoUrl: null,
+      image: "/Projects/TylerPacDevelopmentSite.png"
+    }
+    /*,
     {
       id: 4,
       title: "Weather Dashboard",
@@ -69,6 +71,7 @@ function Projects() {
                 <img 
                   src={project.image} 
                   alt={project.title}
+                  className={project.imageClass || ""}
                   onError={(e) => {
                     e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSIjZjVmNWY1Ii8+CjxwYXRoIGQ9Ik0xNzUgMTAwSDIyNVYxNTBIMTc1VjEwMFoiIGZpbGw9IiNkZGRkZGQiLz4KPC9zdmc+';
                   }}
