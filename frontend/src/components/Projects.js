@@ -3,6 +3,16 @@ import './Projects.css';
 
 function Projects() {
   const projects = [
+    {
+      id: 4,
+      title: "Dynamic Crates CICD Pipeline Automation",
+      description: "This project automates the creation, updating, and deployment of dynamic loot tables and crate positions for a game server. It integrates Python, Flask, JavaScript, and batch scripting, and is designed for easy triggering and extensibility. The system can be controlled via Google Sheets, making it accessible for both technical and non-technical users.",
+      languages: ["Python", "JavaScript", "Batch"],
+      tools: ["Flask", "Node.js", "Google Sheets API", "Batch Scripts"],
+      githubUrl: "https://github.com/TylerPac/DynamincCratesCICDPipelines",
+      demoUrl: "https://docs.google.com/spreadsheets/d/10n0FIkA1bNESDSjaIBXvgCDc1ckrdhkermn4zsnXZPE/edit?usp=sharing",
+      image: "/Projects/DynamicCratesCICD.png"
+    },
     { 
       id: 2,
       title: "Momentum Workout and Data Tracking App",
