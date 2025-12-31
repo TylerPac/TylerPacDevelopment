@@ -1,9 +1,10 @@
 # frontend/Dockerfile
 
 # Build phase
-FROM node:20-alpine AS builder
+FROM node:lts-alpine AS builder
 WORKDIR /app
 COPY . .
+RUN npm install -g npm@latest
 RUN npm install
 RUN npm run build
 
