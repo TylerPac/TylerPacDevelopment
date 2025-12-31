@@ -6,6 +6,7 @@ WORKDIR /app
 COPY . .
 RUN npm install -g npm@latest
 RUN npm install
+RUN npm audit fix --force
 RUN npm run build
 
 # Production phase with NGINX
