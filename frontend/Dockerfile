@@ -3,10 +3,12 @@
 # Build phase
 FROM node:lts-alpine AS builder
 WORKDIR /app
-COPY . .
 RUN npm install -g npm@latest
-RUN npm install
-RUN npm audit fix --force
+
+COPY package.json package-lock.json ./
+RUN npm ci
+
+COPY . .
 RUN npm run build
 
 # Production phase with NGINX
