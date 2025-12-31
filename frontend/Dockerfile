@@ -1,7 +1,7 @@
 # frontend/Dockerfile
 
 # Build phase
-FROM node:lts-alpine AS builder
+FROM node:22-alpine AS builder
 WORKDIR /app
 RUN npm install -g npm@latest
 
