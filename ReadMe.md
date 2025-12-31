@@ -22,13 +22,14 @@ It is fully containerized and deployed using a robust CI/CD pipeline.
 ## 🛠️ Tech Stack
 
 **Frontend**
-- ⚛️ [React](https://reactjs.org/) – Responsive UI built with modern components
-- 📦 Vite or Create React App for development/build (based on final setup)
+- ⚛️ [React](https://react.dev/) – SPA UI
+- 📦 [Vite](https://vite.dev/) – Dev server + production build
+- 🌐 [nginx](https://nginx.org/) – Serves the built frontend in Docker and proxies `/api/*` to the backend
 
 **Backend**
-- ☕ [Java](https://www.java.com/) – Spring Boot REST API layer
-- 🗃️ [MySQL](https://www.mysql.com/) – Relational database for content and user data
-- 🔐 Hibernate for ORM and JPA integration
+- ☕ Java + Spring Boot REST API
+- 🗃️ MySQL (via Docker Compose)
+- 🔐 Hibernate/JPA
 
 **DevOps / CI/CD**
 - 🐳 [Docker](https://www.docker.com/) – Containerized microservices architecture
@@ -36,5 +37,52 @@ It is fully containerized and deployed using a robust CI/CD pipeline.
 - ☁️ Optional future integration: Cloudflare Tunnel or reverse proxy for secure access
 
 ---
+
+## 🧪 Local Development
+
+### Ports (defaults)
+
+- Frontend (Vite dev): `http://localhost:3000`
+- Backend (Spring Boot dev profile): `http://localhost:8085`
+- Backend (Spring Boot default profile): `http://localhost:8080`
+
+### Run without Docker (recommended for dev)
+
+Backend (dev profile, port 8085):
+
+```powershell
+cd .\mainsite
+.\mvnw.cmd spring-boot:run -Dspring-boot.run.profiles=dev
+```
+
+Frontend (Vite dev server, port 3000):
+
+```powershell
+cd .\frontend
+npm install
+npm run dev
+```
+
+Notes:
+- The Vite dev server proxies `/api/*` to the backend. Default target is `http://localhost:8085`.
+- If your backend is running on `8080` instead, set `VITE_API_TARGET` before running `npm run dev`:
+
+```powershell
+$env:VITE_API_TARGET = "http://localhost:8080"
+npm run dev
+```
+
+### Run with Docker Compose
+
+```powershell
+docker compose up -d --build
+```
+
+Default Compose ports:
+- Frontend: `http://localhost:3000` (nginx container)
+- Backend: `http://localhost:8081` (mapped to container `8080`)
+- MySQL: `localhost:3306`
+
+In Docker Compose, nginx proxies `/api/*` to the backend service, so `http://localhost:3000/api/hello` should work.
 
 
