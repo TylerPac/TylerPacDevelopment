@@ -6,7 +6,7 @@ WORKDIR /app
 RUN npm install -g npm@latest
 
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm install --no-audit --no-fund
 
 COPY . .
 RUN npm run build
