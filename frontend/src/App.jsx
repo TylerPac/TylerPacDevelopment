@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navigation from './components/Navigation.jsx';
+import ScrollToTop from './components/ScrollToTop.jsx';
 import Home from './components/Home.jsx';
 import About from './components/About.jsx';
 import Projects from './components/Projects.jsx';
@@ -12,6 +13,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <ScrollToTop />
         <Navigation />
         <Routes>
           <Route path="/" element={<Home />} />
