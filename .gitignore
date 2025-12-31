@@ -1,7 +1,11 @@
+# Secrets / env files
+.env
+.env.*
+**/.env
+**/.env.*
 
+# Build outputs
+frontend/dist/
 
-#Ignore vscode AI rules
-.github\instructions\codacy.instructions.md
-Notes.md
+# Ignore vscode AI rules
 .codacy/
-.github/

@@ -21,10 +21,17 @@ pipeline {
         stage('Deploy with Docker Compose') {
             steps {
                 echo "🚀 Building and starting all services via Docker Compose..."
-                sh 'docker compose down || true'
-                sh 'docker compose pull'
-                sh 'docker compose build --pull'
-                sh 'docker compose up -d'
+                withCredentials([
+                    string(credentialsId: 'MYSQL_ROOT_PASSWORD', variable: 'MYSQL_ROOT_PASSWORD'),
+                    string(credentialsId: 'MYSQL_DATABASE', variable: 'MYSQL_DATABASE'),
+                    string(credentialsId: 'MYSQL_USER', variable: 'MYSQL_USER'),
+                    string(credentialsId: 'MYSQL_PASSWORD', variable: 'MYSQL_PASSWORD')
+                ]) {
+                    sh 'docker compose down || true'
+                    sh 'docker compose pull || true'
+                    sh 'docker compose build --pull'
+                    sh 'docker compose up -d'
+                }
             }
         }
     }
