@@ -7,13 +7,6 @@ function Home() {
     window.open('/resume/Tyler_Pac_Resume.pdf', '_blank');
   };
 
-  const handleResumeDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/resume/Tyler_Pac_Resume.pdf';
-    link.download = 'Tyler_Pac_Resume.pdf';
-    link.click();
-  };
-
   return (
     <div className="home">
       <header className="App-header">
