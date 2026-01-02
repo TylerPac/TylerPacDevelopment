@@ -1,54 +1,55 @@
 import React from 'react';
 import './Projects.css';
 
-function Projects() {
-  const projects = [
-    {
-      id: 4,
-      title: 'Dynamic Crates CICD Pipeline Automation',
-      description:
-        'This project automates the creation, updating, and deployment of dynamic loot tables and crate positions for a game server. It integrates Python, Flask, JavaScript, and batch scripting, and is designed for easy triggering and extensibility. The system can be controlled via Google Sheets, making it accessible for both technical and non-technical users.',
-      languages: ['Python', 'JavaScript', 'Batch'],
-      tools: ['Flask', 'Node.js', 'Google Sheets API', 'Batch Scripts'],
-      githubUrl: 'https://github.com/TylerPac/DynamincCratesCICDPipelines',
-      demoUrl: 'https://docs.google.com/spreadsheets/d/10n0FIkA1bNESDSjaIBXvgCDc1ckrdhkermn4zsnXZPE/edit?usp=sharing',
-      image: '/Projects/DynamicCratesCICD.png',
-    },
-    {
-      id: 2,
-      title: 'Momentum Workout and Data Tracking App',
-      description:
-        'A comprehensive fitness tracking application built with Java servlets and JSP. Features user authentication, workout logging, data analytics, and progress tracking with Hibernate ORM for database management. Use Username: admin / Password: admin to log in and explore the application.',
-      languages: ['Java', 'JavaScript', 'HTML', 'CSS', 'SQL'],
-      tools: ['Java Servlets', 'JSP', 'Hibernate', 'MySQL', 'Maven', 'Docker', 'Tomcat', 'Git', 'Jenkins'],
-      githubUrl: 'https://github.com/TylerPac/MomentumDocker/',
-      demoUrl: 'https://momentum.tylerpac.dev/',
-      image: '/Projects/Momentum.png',
-    },
-    {
-      id: 3,
-      title: 'ETL Pipeline Automation with Apache Airflow and Kubernetes',
-      description: 'Containerized Apache Airflow workflow using Kubernetes (Kind in Docker) for photovoltaic research data.',
-      languages: ['Python', 'MySQL', 'SQL'],
-      tools: ['Docker', 'MySQL', 'Kubernetes', 'Helm', 'Airflow', 'Git'],
-      githubUrl: 'https://github.com/TylerPac/airflow',
-      demoUrl: null,
-      image: '/Projects/FSEClogo.jpg',
-      imageClass: 'etl-image',
-    },
-    {
-      id: 1,
-      title: 'TylerPac Development Site',
-      description:
-        'A full-stack web application showcasing my development portfolio. Features a React frontend with Spring Boot backend, containerized with Docker for seamless deployment.',
-      languages: ['JavaScript', 'Java', 'CSS', 'HTML'],
-      tools: ['React', 'Spring Boot', 'Docker', 'Maven', 'Git', 'Jenkins'],
-      githubUrl: 'https://github.com/TylerPac/TylerPacDevelopment',
-      demoUrl: null,
-      image: '/Projects/TylerPacDevelopmentSite.png',
-    },
-  ];
+const projects = [
+  {
+    id: 4,
+    title: 'Dynamic Crates CICD Pipeline Automation',
+    description:
+      'This project automates the creation, updating, and deployment of dynamic loot tables and crate positions for a game server. It integrates Python, Flask, JavaScript, and batch scripting, and is designed for easy triggering and extensibility. The system can be controlled via Google Sheets, making it accessible for both technical and non-technical users.',
+    languages: ['Python', 'JavaScript', 'Batch'],
+    tools: ['Flask', 'Node.js', 'Google Sheets API', 'Batch Scripts'],
+    githubUrl: 'https://github.com/TylerPac/DynamincCratesCICDPipelines',
+    demoUrl:
+      'https://docs.google.com/spreadsheets/d/10n0FIkA1bNESDSjaIBXvgCDc1ckrdhkermn4zsnXZPE/edit?usp=sharing',
+    image: '/Projects/DynamicCratesCICD.png',
+  },
+  {
+    id: 2,
+    title: 'Momentum Workout and Data Tracking App',
+    description:
+      'A comprehensive fitness tracking application built with Java servlets and JSP. Features user authentication, workout logging, data analytics, and progress tracking with Hibernate ORM for database management. Use Username: admin / Password: admin to log in and explore the application.',
+    languages: ['Java', 'JavaScript', 'HTML', 'CSS', 'SQL'],
+    tools: ['Java Servlets', 'JSP', 'Hibernate', 'MySQL', 'Maven', 'Docker', 'Tomcat', 'Git', 'Jenkins'],
+    githubUrl: 'https://github.com/TylerPac/MomentumDocker/',
+    demoUrl: 'https://momentum.tylerpac.dev/',
+    image: '/Projects/Momentum.png',
+  },
+  {
+    id: 3,
+    title: 'ETL Pipeline Automation with Apache Airflow and Kubernetes',
+    description: 'Containerized Apache Airflow workflow using Kubernetes (Kind in Docker) for photovoltaic research data.',
+    languages: ['Python', 'MySQL', 'SQL'],
+    tools: ['Docker', 'MySQL', 'Kubernetes', 'Helm', 'Airflow', 'Git'],
+    githubUrl: 'https://github.com/TylerPac/airflow',
+    demoUrl: null,
+    image: '/Projects/FSEClogo.jpg',
+    imageClass: 'etl-image',
+  },
+  {
+    id: 1,
+    title: 'TylerPac Development Site',
+    description:
+      'A full-stack web application showcasing my development portfolio. Features a React frontend with Spring Boot backend, containerized with Docker for seamless deployment.',
+    languages: ['JavaScript', 'Java', 'CSS', 'HTML'],
+    tools: ['React', 'Spring Boot', 'Docker', 'Maven', 'Git', 'Jenkins'],
+    githubUrl: 'https://github.com/TylerPac/TylerPacDevelopment',
+    demoUrl: null,
+    image: '/Projects/TylerPacDevelopmentSite.png',
+  },
+];
 
+function Projects() {
   const handleGitHubClick = (url) => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
@@ -72,6 +73,8 @@ function Projects() {
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
+                  decoding="async"
                   className={project.imageClass || ''}
                   onError={(e) => {
                     e.target.src =
