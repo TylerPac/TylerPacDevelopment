@@ -4,10 +4,6 @@ pipeline {
         maven 'Maven 3.9'
     }
 
-    environment {
-        MYSQL_SERVICE = "shared_mysql"
-        MYSQL_PORT = "3306"
-    }
 
     stages {
         stage('Build Spring Boot Backend') {
