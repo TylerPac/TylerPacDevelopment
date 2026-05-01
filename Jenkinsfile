@@ -1,33 +1,19 @@
 pipeline {
     agent any
-    tools {
-        maven 'Maven 3.9'
-    }
-
 
     stages {
-        stage('Build Spring Boot Backend') {
+        stage('Build Frontend') {
             steps {
-                dir('mainsite') {
-                    sh 'mvn clean package -DskipTests'
-                }
+                echo "🔧 Building frontend assets (Docker will build the image)"
+                sh 'docker compose build --pull frontend'
             }
         }
 
         stage('Deploy with Docker Compose') {
             steps {
-                echo "🚀 Building and starting all services via Docker Compose..."
-                withCredentials([
-                    string(credentialsId: 'MYSQL_ROOT_PASSWORD', variable: 'MYSQL_ROOT_PASSWORD'),
-                    string(credentialsId: 'MYSQL_DATABASE', variable: 'MYSQL_DATABASE'),
-                    string(credentialsId: 'MYSQL_USER', variable: 'MYSQL_USER'),
-                    string(credentialsId: 'MYSQL_PASSWORD', variable: 'MYSQL_PASSWORD')
-                ]) {
-                    sh 'docker compose down || true'
-                    sh 'docker compose pull || true'
-                    sh 'docker compose build --pull'
-                    sh 'docker compose up -d'
-                }
+                echo "🚀 Starting frontend via Docker Compose..."
+                sh 'docker compose down || true'
+                sh 'docker compose up -d --no-deps --force-recreate frontend'
             }
         }
     }
