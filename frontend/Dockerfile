@@ -3,10 +3,11 @@
 # Build phase
 FROM node:22-alpine AS builder
 WORKDIR /app
-RUN npm install -g npm@latest
 
+# Avoid upgrading npm globally in the build image (can fail on smaller/alpine images).
+# Use `npm ci` for reproducible, deterministic installs based on package-lock.json.
 COPY package.json package-lock.json ./
-RUN npm install --no-audit --no-fund
+RUN npm ci --no-audit --no-fund
 
 COPY . .
 RUN npm run build
