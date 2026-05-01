@@ -3,7 +3,7 @@ import './Contact.css';
 
 function Contact() {
   const handleEmailClick = () => {
-    window.location.href = 'mailto:contact@tylerpac.dev';
+    window.location.href = 'mailto:pac.tylerj@gmail.com';
   };
 
   const handleLinkedInClick = () => {
@@ -23,7 +23,7 @@ function Contact() {
       <div className="contact-methods">
         <div className="contact-card clickable-card" onClick={handleEmailClick}>
           <h3>Email</h3>
-          <span className="contact-info">contact@tylerpac.dev</span>
+          <span className="contact-info">pac.tylerj@gmail.com</span>
         </div>
 
         <div className="contact-card clickable-card" onClick={handleLinkedInClick}>
