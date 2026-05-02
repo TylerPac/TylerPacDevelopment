@@ -39,9 +39,9 @@ const projects = [
     id: 4,
     title: 'TylerPac Development Site',
     description:
-      'A full-stack web application showcasing my development portfolio. Features a React frontend with Spring Boot backend, containerized with Docker for seamless deployment.',
-    languages: ['JavaScript', 'Java', 'CSS', 'HTML'],
-    tools: ['React', 'Spring Boot', 'Docker', 'Maven', 'Git', 'Jenkins'],
+      'A personal portfolio website showcasing my development work. Built with React and Vite, served via Nginx, and containerized with Docker for seamless deployment via Jenkins CI/CD.',
+    languages: ['JavaScript', 'CSS', 'HTML'],
+    tools: ['React', 'Vite', 'Nginx', 'Docker', 'Git', 'Jenkins'],
     githubUrl: 'https://github.com/TylerPac/TylerPacDevelopment',
     demoUrl: null,
     image: '/Projects/TylerPacDevelopmentSite.png',
