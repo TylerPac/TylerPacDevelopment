@@ -2,9 +2,19 @@ import React from 'react';
 import './Projects.css';
 
 const projects = [
-  
   {
     id: 1,
+    title: 'OverKill Development — DayZ Mod eCommerce Platform',
+    description:
+      'A production eCommerce platform built from the ground up to serve the DayZ modding community. Features a full Stripe-integrated shop with access code redemption, JWT authentication, Google OAuth, a product detail system with media carousels, and an admin dashboard. Backend is a Spring Boot REST API; frontend is React/Vite — both containerized and deployed via Jenkins CI/CD.',
+    languages: ['Java', 'JavaScript', 'HTML', 'CSS', 'SQL'],
+    tools: ['Spring Boot', 'Spring Security', 'JWT', 'Stripe', 'JPA/Hibernate', 'MySQL', 'React', 'Vite', 'Nginx', 'Maven', 'Docker', 'Git', 'Jenkins'],
+    githubUrl: 'https://github.com/TylerPac/OverKillDevelopment',
+    demoUrl: 'https://overkilldayz.com/',
+    image: '/Projects/OverKillDayZ.png',
+  },
+  {
+    id: 2,
     title: 'Momentum Workout and Data Tracking App',
     description:
       'A full-stack fitness tracking application with a Spring Boot REST API backend and a React frontend. Features JWT-based authentication, workout logging, and dashboard analytics, containerized with Docker for deployment.',
@@ -15,7 +25,7 @@ const projects = [
     image: '/Projects/Momentum.png',
   },
   {
-    id: 2,
+    id: 3,
     title: 'ETL Pipeline Automation with Apache Airflow and Kubernetes',
     description: 'Containerized Apache Airflow workflow using Kubernetes (Kind in Docker) for photovoltaic research data.',
     languages: ['Python', 'MySQL', 'SQL'],
@@ -24,18 +34,6 @@ const projects = [
     demoUrl: null,
     image: '/Projects/FSEClogo.jpg',
     imageClass: 'etl-image',
-  },
-  {
-    id: 3,
-    title: 'Dynamic Crates CICD Pipeline Automation',
-    description:
-      'This project automates the creation, updating, and deployment of dynamic loot tables and crate positions for a game server. It integrates Python, Flask, JavaScript, and batch scripting, and is designed for easy triggering and extensibility. The system can be controlled via Google Sheets, making it accessible for both technical and non-technical users.',
-    languages: ['Python', 'JavaScript', 'Batch'],
-    tools: ['Flask', 'Node.js', 'Google Sheets API', 'Batch Scripts'],
-    githubUrl: 'https://github.com/TylerPac/DynamincCratesCICDPipelines',
-    demoUrl:
-      'https://docs.google.com/spreadsheets/d/10n0FIkA1bNESDSjaIBXvgCDc1ckrdhkermn4zsnXZPE/edit?usp=sharing',
-    image: '/Projects/DynamicCratesCICD.png',
   },
   {
     id: 4,
