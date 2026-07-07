@@ -1,6 +1,7 @@
 import React from 'react';
 import './Projects.css';
 
+// Data-driven UI: each object becomes one card via map().
 const projects = [
   {
     id: 1,
@@ -66,6 +67,7 @@ function Projects() {
         </header>
 
         <div className="projects-grid">
+          {/* map() loops through projects and returns one JSX card per item. */}
           {projects.map((project) => (
             <div key={project.id} className="project-card">
               <div className="project-image">
@@ -76,6 +78,7 @@ function Projects() {
                   decoding="async"
                   className={project.imageClass || ''}
                   onError={(e) => {
+                    // If an image fails to load, replace it with an inline placeholder.
                     e.target.src =
                       'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSIjZjVmNWY1Ii8+CjxwYXRoIGQ9Ik0xNzUgMTAwSDIyNVYxNTBIMTc1VjEwMFoiIGZpbGw9IiNkZGRkZGQiLz4KPC9zdmc+';
                   }}

@@ -8,6 +8,7 @@ function About() {
         <h1>About Me</h1>
         <p>Driven by Curiosity | Built through Experience</p>
       </header>
+      {/* Semantic sections keep content grouped and easier to style/read. */}
       <div className="background-section">
         <h2>My Journey</h2>
         <p>

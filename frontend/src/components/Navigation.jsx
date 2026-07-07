@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Navigation.css';
 
 function Navigation() {
+  // React state: tracks whether the mobile menu drawer is open.
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -24,6 +25,7 @@ function Navigation() {
           </Link>
         </div>
 
+        {/* Desktop navigation links. */}
         <ul className="nav-menu">
           <li className="nav-item">
             <Link to="/" className="nav-link">Home</Link>
@@ -47,14 +49,17 @@ function Navigation() {
           </li>
         </ul>
 
+        {/* Mobile hamburger toggles classes based on isMenuOpen state. */}
         <div className="hamburger" onClick={toggleMenu}>
           <div className={`hamburger-line ${isMenuOpen ? 'active' : ''}`}></div>
           <div className={`hamburger-line ${isMenuOpen ? 'active' : ''}`}></div>
           <div className={`hamburger-line ${isMenuOpen ? 'active' : ''}`}></div>
         </div>
 
+        {/* Clicking the overlay closes the mobile menu. */}
         <div className={`mobile-menu-overlay ${isMenuOpen ? 'active' : ''}`} onClick={closeMenu}></div>
 
+        {/* Mobile navigation drawer. */}
         <div className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
           <div className="mobile-menu-header">
             <div className="mobile-logo">

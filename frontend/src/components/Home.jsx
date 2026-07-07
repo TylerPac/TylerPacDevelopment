@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import './Home.css';
 
 function Home() {
+  // Cache-busting query param helps browsers fetch the newest PDF after updates.
   const resumeUrl = '/resume/Tyler_Pac_Resume.pdf?v=20260707';
 
   const handleResumeView = () => {
+    // Open the resume in a new browser tab.
     window.open(resumeUrl, '_blank');
   };
 

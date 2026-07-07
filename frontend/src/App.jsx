@@ -11,10 +11,14 @@ import Contact from './components/Contact.jsx';
 
 function App() {
   return (
+    // BrowserRouter enables client-side navigation without full page reloads.
     <Router>
       <div className="App">
+        {/* Runs on route changes and forces page scroll back to top. */}
         <ScrollToTop />
+        {/* Shared top navigation visible on every page. */}
         <Navigation />
+        {/* Each Route maps a URL path to the component rendered for that page. */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

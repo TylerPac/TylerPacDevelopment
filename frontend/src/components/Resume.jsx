@@ -5,6 +5,7 @@ function Resume() {
   const resumeUrl = '/resume/Tyler_Pac_Resume.pdf?v=20260707';
 
   const handleDownloadResume = () => {
+    // Create a temporary anchor to trigger a browser file download.
     const link = document.createElement('a');
     link.href = resumeUrl;
     link.download = 'Tyler_Pac_Resume.pdf';
@@ -30,6 +31,7 @@ function Resume() {
 
           <div className="pdf-container">
             <iframe
+              // Embed the PDF directly on the page while hiding built-in toolbar controls.
               src={`${resumeUrl}#toolbar=0&navpanes=0&scrollbar=0`}
               width="100%"
               height="1000px"
