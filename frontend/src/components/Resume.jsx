@@ -2,8 +2,9 @@ import React from 'react';
 import './Resume.css';
 
 function Resume() {
+  const resumeUrl = '/resume/Tyler_Pac_Resume.pdf?v=20260707';
+
   const handleDownloadResume = () => {
-    const resumeUrl = '/resume/Tyler_Pac_Resume.pdf';
     const link = document.createElement('a');
     link.href = resumeUrl;
     link.download = 'Tyler_Pac_Resume.pdf';
@@ -29,7 +30,7 @@ function Resume() {
 
           <div className="pdf-container">
             <iframe
-              src="/resume/Tyler_Pac_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0"
+              src={`${resumeUrl}#toolbar=0&navpanes=0&scrollbar=0`}
               width="100%"
               height="1000px"
               style={{
@@ -41,7 +42,7 @@ function Resume() {
             >
               <p>
                 PDF preview is not supported on your device.
-                <a href="/resume/Tyler_Pac_Resume.pdf" download style={{ color: '#61dafb', marginLeft: '10px' }}>
+                <a href={resumeUrl} download style={{ color: '#61dafb', marginLeft: '10px' }}>
                   Download PDF
                 </a>
               </p>

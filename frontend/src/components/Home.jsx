@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import './Home.css';
 
 function Home() {
+  const resumeUrl = '/resume/Tyler_Pac_Resume.pdf?v=20260707';
+
   const handleResumeView = () => {
-    window.open('/resume/Tyler_Pac_Resume.pdf', '_blank');
+    window.open(resumeUrl, '_blank');
   };
 
   return (
