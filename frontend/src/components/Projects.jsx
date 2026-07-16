@@ -7,7 +7,7 @@ const projects = [
     id: 1,
     title: 'OverKill Development — DayZ Mod eCommerce Platform',
     description:
-      'A production eCommerce platform built from the ground up to serve the DayZ modding community. Features a full Stripe-integrated shop with access code redemption, JWT authentication, Google OAuth, a product detail system with media carousels, and an admin dashboard. Backend is a Spring Boot REST API; frontend is React/Vite — both containerized and deployed via Jenkins CI/CD.',
+      'Built from scratch for the DayZ modding community, this is a live eCommerce platform with Stripe payments, access-code redemption, JWT auth, Google sign-in, product pages with image carousels, and an admin dashboard. The backend runs on Spring Boot (REST API), and the frontend is React/Vite. Everything is containerized with Docker and deployed through a Jenkins CI/CD pipeline.',
     languages: ['Java', 'JavaScript', 'HTML', 'CSS', 'SQL'],
     tools: ['Spring Boot', 'Spring Security', 'JWT', 'Stripe', 'JPA/Hibernate', 'MySQL', 'React', 'Vite', 'Nginx', 'Maven', 'Docker', 'Git', 'Jenkins'],
     githubUrl: 'https://github.com/TylerPac/OverKillDevelopment',
@@ -18,7 +18,7 @@ const projects = [
     id: 2,
     title: 'Momentum Workout and Data Tracking App',
     description:
-      'A full-stack fitness tracking application with a Spring Boot REST API backend and a React frontend. Features JWT-based authentication, workout logging, and dashboard analytics, containerized with Docker for deployment.',
+      'Momentum is a full-stack fitness tracker where users can log workouts, monitor progress, and view performance insights in one dashboard. It uses a Spring Boot REST API on the backend and a React frontend, with JWT-based authentication for secure access. The app is containerized with Docker and set up for deployment through Jenkins.',
     languages: ['Java', 'JavaScript', 'HTML', 'CSS', 'SQL'],
     tools: ['Spring Boot', 'Spring Security', 'JWT', 'JPA/Hibernate', 'MySQL', 'React', 'Vite', 'Nginx', 'Maven', 'Docker', 'Git', 'Jenkins'],
     githubUrl: 'https://github.com/TylerPac/MomentumDocker/',
@@ -125,7 +125,7 @@ function Projects() {
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
                       </svg>
-                      Live Demo
+                      View Website
                     </button>
                   )}
                 </div>
