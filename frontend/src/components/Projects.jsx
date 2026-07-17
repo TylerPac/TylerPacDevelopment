@@ -16,9 +16,9 @@ const projects = [
   },
   {
     id: 2,
-    title: 'Momentum Workout and Data Tracking App',
+    title: 'Momentum Fitness — Workout and Data Tracking App',
     description:
-      'Momentum is a full-stack fitness tracker where users can log workouts, monitor progress, and view performance insights in one dashboard. It uses a Spring Boot REST API on the backend and a React frontend, with JWT-based authentication for secure access. The app is containerized with Docker and set up for deployment through Jenkins.',
+      'Built as a full-stack fitness platform, Momentum lets users log workouts, track performance trends, and monitor progress through an intuitive dashboard. It features secure JWT-based authentication, a Spring Boot REST API backend, and a React/Vite frontend. The project also uses MySQL with JPA/Hibernate and is containerized with Docker for streamlined deployment through a Jenkins CI/CD pipeline.',
     languages: ['Java', 'JavaScript', 'HTML', 'CSS', 'SQL'],
     tools: ['Spring Boot', 'Spring Security', 'JWT', 'JPA/Hibernate', 'MySQL', 'React', 'Vite', 'Nginx', 'Maven', 'Docker', 'Git', 'Jenkins'],
     githubUrl: 'https://github.com/TylerPac/MomentumDocker/',
