@@ -1,102 +1,92 @@
 # TylerPac Development
 
-Main portfolio website: [www.tylerpac.dev](https://www.tylerpac.dev)
+![TylerPac Development logo](frontend/public/logo512.png)
 
-TylerPac Development is a frontend portfolio website that presents my software engineering work, project case studies, resume, and technical background in one production-ready site.
+Portfolio platform for projects, technical case studies, and professional engineering presence.
 
-## About Me
+## About TylerPac Development
 
-I am Tyler Pac, a Software Engineer focused on full-stack development, DevOps, and delivery automation. My work centers on building maintainable applications, designing practical architecture, and shipping reliably through CI/CD.
+I built this site to keep everything about my engineering work in one place: project breakdowns, implementation details, resume access, and contact flow. It doubles as both a public portfolio and a practical example of how I design, ship, and operate frontend systems.
 
-This website is both a professional portfolio and an example of my engineering approach across frontend engineering, infrastructure, and deployment.
+## Website
 
-## Project Overview
+- [www.tylerpac.dev](https://www.tylerpac.dev)
 
-The site is designed to:
+## Features
 
-1. Showcase selected projects with technical details and links
-2. Provide an accessible resume and contact path
-3. Demonstrate production-minded engineering practices
+- Project showcase pages with technical context and links
+- Resume and career information in a dedicated public section
+- Contact path for collaboration and engineering opportunities
+- SPA routing for smooth navigation across portfolio sections
+- Containerized deployment with reproducible runtime behavior
+- CI/CD delivery through Jenkins and Docker Compose
+- VPS production routing via Traefik with TLS
 
 ## Technology Stack
 
-### Frontend
+- **Frontend:** React + Vite
+- **Routing:** React Router
+- **Serving:** Nginx (inside frontend container)
+- **Containerization:** Docker + Docker Compose
+- **CI/CD:** Jenkins pipeline
+- **Edge Routing:** Traefik (HTTPS + domain routing)
 
-1. [React](https://react.dev/) for component-based SPA development
-2. [Vite](https://vite.dev/) for local development and production builds
-3. CSS modules/files for page and component styling
-4. [Nginx](https://nginx.org/) for static asset serving in containerized deployments
+## Architecture
 
-### DevOps and Delivery
+TylerPac Development is a frontend-first architecture. React/Vite powers the app, Nginx serves the built assets in a container, and Traefik handles secure domain routing in production.
 
-1. [Docker](https://www.docker.com/) for containerized frontend deployment
-2. [Jenkins](https://www.jenkins.io/) for CI/CD pipeline automation
-3. [Traefik](https://traefik.io/) as reverse proxy and router on VPS hosting
+### System Architecture
 
-## Architecture Summary
+```mermaid
+flowchart LR
+    U[User Browser]
 
-The application follows a frontend-focused architecture:
+    subgraph PROD[Production on VPS]
+        TR[Traefik Router and TLS]
+        FE[Frontend Container\nNginx + React Build]
+    end
 
-1. React SPA built with Vite
-2. Static assets served by Nginx
-3. Containerized deployment to a VPS
-4. Traefik handles routing and edge traffic
+    U -->|HTTPS tylerpac.dev| TR
+    TR -->|Route to frontend service| FE
 
-This structure keeps the stack simple, maintainable, and easy to ship through CI/CD.
+    subgraph CI[Delivery Pipeline]
+        GIT[Repository]
+        JENK[Jenkins]
+        DC[Docker Compose Deploy]
+    end
 
-## Local Development
+    GIT --> JENK
+    JENK -->|docker compose build frontend| DC
+    DC -->|docker compose up -d frontend| FE
 
-### Frontend (Vite)
+    subgraph DEV[Local Development]
+        VITE[Vite Dev Server :3000]
+    end
 
-From the project root:
-
-```powershell
-cd frontend
-npm install
-npm run dev
+    U -. local dev .-> VITE
 ```
 
-Default local URL:
+### Site Structure Diagram
 
-1. [http://localhost:3000](http://localhost:3000)
+```mermaid
+flowchart LR
+    HOME[Home]
+    PROJECTS[Projects]
+    RESUME[Resume]
+    CONTACT[Contact]
 
-### Production Build (Frontend)
+    HOME --> PROJECTS
+    HOME --> RESUME
+    HOME --> CONTACT
 
-```powershell
-cd frontend
-npm run build
+    PROJECTS --> CASES[Project Case Studies]
+    PROJECTS --> LINKS[Repository and Live Links]
 ```
-
-## Deployment Model
-
-Production deployment is container-based and pipeline-driven:
-
-1. Build frontend artifacts with Vite
-2. Package and deploy with Docker
-3. Trigger deployments through Jenkins pipeline stages
-4. Serve via Nginx behind Traefik on a VPS
-
-## Hosting History
-
-Current hosting model:
-
-1. VPS-based deployment
-2. Jenkins-driven delivery pipeline
-3. Traefik for ingress and routing
-
-Previous hosting model:
-
-1. Self-hosted in my homelab
-2. Exposed through Cloudflare services
-
-## Repository Highlights
-
-1. [frontend](frontend) contains the React/Vite client application
-2. [docker-compose.yml](docker-compose.yml) defines local and deployment service wiring
-3. [Jenkinsfile](Jenkinsfile) contains CI/CD pipeline logic
 
 ## Contact
 
-For collaboration, engineering opportunities, or project discussions, please use the contact methods available on the live site:
+**Let's Connect**
 
-1. [www.tylerpac.dev/contact](https://www.tylerpac.dev/contact)
+For collaboration, engineering opportunities, or project discussions, use the contact page:
+
+- [Contact TylerPac Development](https://www.tylerpac.dev/contact)
