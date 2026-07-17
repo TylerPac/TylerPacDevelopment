@@ -28,9 +28,10 @@ const projects = [
   {
     id: 3,
     title: 'ETL Pipeline Automation with Apache Airflow and Kubernetes',
-    description: 'Containerized Apache Airflow workflow using Kubernetes (Kind in Docker) for photovoltaic research data.',
+    description:
+      'A DevOps-focused ETL infrastructure project where I helped get Apache Airflow pipelines running end-to-end by containerizing workloads, standing up Kubernetes (Kind in Docker), and configuring scheduler/worker services for continuous execution. It highlights hands-on platform engineering for reliability, recoverability, and ongoing photovoltaic research data processing.',
     languages: ['Python', 'MySQL', 'SQL'],
-    tools: ['Docker', 'MySQL', 'Kubernetes', 'Helm', 'Airflow', 'Git'],
+    tools: ['Docker', 'MySQL', 'Kubernetes', 'Helm', 'Airflow', 'Git', 'DevOps', 'CI/CD'],
     githubUrl: 'https://github.com/TylerPac/airflow',
     demoUrl: null,
     image: '/Projects/FSEClogo.jpg',
@@ -38,6 +39,17 @@ const projects = [
   },
   {
     id: 4,
+    title: 'HomeLab Infrastructure',
+    description:
+      'A self-hosted homelab infrastructure repository where I run AI, media, knowledge, networking, photo, security, and Git services on my own hardware. It documents real-world DevOps work focused on owning data, operating reliable services, and continuously improving my software engineering skills.',
+    languages: ['Bash', 'YAML', 'Docker', 'Markdown'],
+    tools: ['Docker', 'Docker Compose', 'Linux', 'Networking', 'Git', 'Self-Hosted Services'],
+    githubUrl: 'https://github.com/TylerPac/HomeLab',
+    demoUrl: null,
+    image: '/Projects/HomeLab.png',
+  },
+  {
+    id: 5,
     title: 'TylerPac Development Site',
     description:
       'A personal portfolio website showcasing my development work. Built with React and Vite, served via Nginx, and containerized with Docker for seamless deployment via Jenkins CI/CD.',
