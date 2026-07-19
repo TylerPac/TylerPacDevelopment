@@ -5,33 +5,85 @@ import './Projects.css';
 const projects = [
   {
     id: 1,
-    title: 'OverKill Development — DayZ Mod eCommerce Platform',
+    title: 'OverKill Development — Software Distribution Platform',
     description:
-      'Built from scratch for the DayZ modding community, this is a live eCommerce platform with Stripe payments, access-code redemption, JWT auth, Google sign-in, product pages with image carousels, and an admin dashboard. The backend runs on Spring Boot (REST API), and the frontend is React/Vite. Everything is containerized with Docker and deployed through a Jenkins CI/CD pipeline.',
+      'Founded and led the development of a full-stack software distribution platform serving a large multiplayer community. The platform combines secure authentication, digital commerce, automated customer provisioning, and production deployment infrastructure.',
+    highlights: [
+      'Supported 10,000+ players across 8–15 active game servers',
+      'Generated approximately $5K–10K through digital product sales',
+      'Led a team of 4–5 developers and mentored 12–15 aspiring engineers',
+      'Automated Docker deployments using GitHub Actions and Jenkins',
+    ],
     languages: ['Java', 'JavaScript', 'HTML', 'CSS', 'SQL'],
-    tools: ['Spring Boot', 'Spring Security', 'JWT', 'Stripe', 'JPA/Hibernate', 'MySQL', 'React', 'Vite', 'Nginx', 'Maven', 'Docker', 'Git', 'Jenkins'],
+    tools: [
+      'Spring Boot',
+      'Spring Security',
+      'React',
+      'Vite',
+      'Stripe',
+      'Steam OAuth',
+      'JPA/Hibernate',
+      'MySQL',
+      'Docker',
+      'Jenkins',
+      'GitHub Actions',
+      'Traefik',
+    ],
     githubUrl: 'https://github.com/TylerPac/OverKillDevelopment',
     demoUrl: 'https://overkilldayz.com/',
     image: '/Projects/OverKillDayZ.png',
   },
   {
     id: 2,
-    title: 'Momentum Fitness — Workout and Data Tracking App',
+    title: 'Momentum — Fitness Analytics Platform',
     description:
-      'Built as a full-stack fitness platform, Momentum lets users log workouts, track performance trends, and monitor progress through an intuitive dashboard. It features secure JWT-based authentication, a Spring Boot REST API backend, and a React/Vite frontend. The project also uses MySQL with JPA/Hibernate and is containerized with Docker for streamlined deployment through a Jenkins CI/CD pipeline.',
+      'Developed a production-style full-stack platform that enables users to securely log workouts, review exercise history, and visualize long-term performance trends through an interactive analytics dashboard.',
+    highlights: [
+      'Designed a normalized relational database schema using MySQL',
+      'Implemented RESTful backend services with Spring Boot and JPA/Hibernate',
+      'Built interactive React dashboards for workout trends and historical analytics',
+      'Automated containerized production deployments through Jenkins CI/CD',
+    ],
     languages: ['Java', 'JavaScript', 'HTML', 'CSS', 'SQL'],
-    tools: ['Spring Boot', 'Spring Security', 'JWT', 'JPA/Hibernate', 'MySQL', 'React', 'Vite', 'Nginx', 'Maven', 'Docker', 'Git', 'Jenkins'],
+    tools: [
+      'Spring Boot',
+      'Spring Security',
+      'React',
+      'Vite',
+      'JSON Web Token',
+      'JPA/Hibernate',
+      'MySQL',
+      'Docker',
+      'Nginx',
+      'Maven',
+      'Jenkins',
+    ],
     githubUrl: 'https://github.com/TylerPac/MomentumDocker/',
     demoUrl: 'https://momentum.tylerpac.dev/',
     image: '/Projects/Momentum.png',
   },
   {
     id: 3,
-    title: 'ETL Pipeline Automation with Apache Airflow and Kubernetes',
+    title: 'DARTS — Research Data Infrastructure',
     description:
-      'A DevOps-focused ETL infrastructure project where I helped get Apache Airflow pipelines running end-to-end by containerizing workloads, standing up Kubernetes (Kind in Docker), and configuring scheduler/worker services for continuous execution. It highlights hands-on platform engineering for reliability, recoverability, and ongoing photovoltaic research data processing.',
-    languages: ['Python', 'MySQL', 'SQL'],
-    tools: ['Docker', 'MySQL', 'Kubernetes', 'Helm', 'Airflow', 'Git', 'DevOps', 'CI/CD'],
+      'Helped deliver reproducible data-processing infrastructure for photovoltaic researchers by deploying Apache Airflow workflows on Kubernetes and automating ingestion into PostgreSQL.',
+    highlights: [
+      'Supported 50+ continuously updated research datasets',
+      'Eliminated manual weekly processing through automated ingestion pipelines',
+      'Standardized environments using Kubernetes, Docker, and persistent storage',
+      'Documented FAIR deployment procedures for long-term research adoption',
+    ],
+    languages: ['Python', 'SQL', 'YAML'],
+    tools: [
+      'Apache Airflow',
+      'Kubernetes',
+      'Docker',
+      'PostgreSQL',
+      'Helm',
+      'GitHub Actions',
+      'CI/CD',
+      'Linux',
+    ],
     githubUrl: 'https://github.com/TylerPac/airflow',
     demoUrl: null,
     image: '/Projects/FSEClogo.jpg',
@@ -39,24 +91,55 @@ const projects = [
   },
   {
     id: 4,
-    title: 'HomeLab Infrastructure',
+    title: 'Self-Hosted AI & Infrastructure Platform',
     description:
-      'A self-hosted homelab infrastructure repository where I run AI, media, knowledge, networking, photo, security, and Git services on my own hardware. It documents real-world DevOps work focused on owning data, operating reliable services, and continuously improving my software engineering skills.',
-    languages: ['Bash', 'YAML', 'Docker', 'Markdown'],
-    tools: ['Docker', 'Docker Compose', 'Linux', 'Networking', 'Git', 'Self-Hosted Services'],
+      'Designed and maintain a production-style Ubuntu homelab used to operate development tools, AI services, networking infrastructure, private Git hosting, security systems, and knowledge-management workflows.',
+    highlights: [
+      'Operates 20+ containerized services across multiple infrastructure stacks',
+      'Runs GPU-accelerated local LLM inference using llama.cpp',
+      'Provides private cross-device synchronization through CouchDB and Obsidian LiveSync',
+      'Centralizes Git hosting, reverse proxy routing, networking, media, and security services',
+    ],
+    languages: ['Bash', 'YAML', 'Markdown'],
+    tools: [
+      'Ubuntu',
+      'Docker',
+      'Docker Compose',
+      'llama.cpp',
+      'Traefik',
+      'CouchDB',
+      'Gitea',
+      'Cloudflare',
+      'Linux',
+      'Networking',
+    ],
     githubUrl: 'https://github.com/TylerPac/HomeLab',
     demoUrl: null,
     image: '/Projects/HomeLab.png',
   },
   {
     id: 5,
-    title: 'TylerPac Development Site',
+    title: 'TylerPac.dev — Software Engineering Portfolio',
     description:
-      'A personal portfolio website showcasing my development work. Built with React and Vite, served via Nginx, and containerized with Docker for seamless deployment via Jenkins CI/CD.',
-    languages: ['JavaScript', 'CSS', 'HTML'],
-    tools: ['React', 'Vite', 'Nginx', 'Docker', 'Git', 'Jenkins'],
+      'Created a centralized portfolio for presenting software engineering experience, live applications, architecture documentation, and source code across backend, full-stack, and infrastructure projects.',
+    highlights: [
+      'Built a responsive frontend using React and Vite',
+      'Automated production deployments using Jenkins and Docker',
+      'Deployed to a self-hosted Ubuntu VPS behind Traefik',
+      'Provides direct access to live applications, GitHub repositories, and resume content',
+    ],
+    languages: ['JavaScript', 'HTML', 'CSS'],
+    tools: [
+      'React',
+      'Vite',
+      'Docker',
+      'Nginx',
+      'Jenkins',
+      'Traefik',
+      'Git',
+    ],
     githubUrl: 'https://github.com/TylerPac/TylerPacDevelopment',
-    demoUrl: null,
+    demoUrl: 'https://tylerpac.dev/',
     image: '/Projects/TylerPacDevelopmentSite.png',
   },
 ];
@@ -100,6 +183,12 @@ function Projects() {
               <div className="project-content">
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-description">{project.description}</p>
+
+                <ul className="project-highlights">
+                  {project.highlights.map((highlight, index) => (
+                    <li key={index}>{highlight}</li>
+                  ))}
+                </ul>
 
                 <div className="project-tech">
                   <div className="tech-section">

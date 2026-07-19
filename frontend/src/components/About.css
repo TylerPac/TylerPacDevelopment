@@ -116,11 +116,15 @@ position: relative;
     padding: 2rem 1.5rem;
   }
   
-  .background-section,
-  .philosophy-section,
-  .goals-section {
+  .about-section,
+  .highlights-section,
+  .focus-section {
     padding: 1.5rem;
     margin-bottom: 2rem;
+  }
+
+  .highlights-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -144,17 +148,26 @@ position: relative;
     font-size: 1rem;
   }
   
-  .background-section,
-  .philosophy-section,
-  .goals-section {
+  .about-section,
+  .highlights-section,
+  .focus-section {
     padding: 1rem;
     margin-bottom: 1.5rem;
   }
   
-  .background-section h2,
-  .philosophy-section h2,
-  .goals-section h2 {
+  .about-section h2,
+  .highlights-section h2,
+  .focus-section h2 {
     font-size: 1.3rem;
+  }
+
+  .highlights-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .focus-list {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -211,9 +224,9 @@ position: relative;
 }
 
 /* New section styles */
-.background-section,
-.philosophy-section,
-.goals-section {
+.about-section,
+.highlights-section,
+.focus-section {
   margin-bottom: 3rem;
   padding: 2rem;
   background: rgba(107, 70, 193, 0.05);
@@ -225,17 +238,17 @@ position: relative;
   margin-right: auto;
 }
 
-.background-section:hover,
-.philosophy-section:hover,
-.goals-section:hover {
+.about-section:hover,
+.highlights-section:hover,
+.focus-section:hover {
   background: rgba(107, 70, 193, 0.1);
   transform: translateY(-3px);
   box-shadow: 0 8px 25px var(--shadow-color);
 }
 
-.background-section h2,
-.philosophy-section h2,
-.goals-section h2 {
+.about-section h2,
+.highlights-section h2,
+.focus-section h2 {
   color: var(--light-purple);
   font-size: 1.5rem;
   font-weight: 600;
@@ -245,9 +258,9 @@ position: relative;
   position: relative;
 }
 
-.background-section h2::after,
-.philosophy-section h2::after,
-.goals-section h2::after {
+.about-section h2::after,
+.highlights-section h2::after,
+.focus-section h2::after {
   content: '';
   position: absolute;
   bottom: -0.5rem;
@@ -257,8 +270,64 @@ position: relative;
   background: var(--gradient-purple);
 }
 
-.goals-section {
+.focus-section {
   margin-bottom: 0;
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.highlight-card {
+  background: rgba(107, 70, 193, 0.12);
+  border: 1px solid rgba(107, 70, 193, 0.28);
+  border-radius: 12px;
+  padding: 1.1rem 0.9rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-2px);
+  background: rgba(107, 70, 193, 0.18);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.highlight-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.35rem;
+  color: var(--text-white);
+}
+
+.highlight-card p {
+  color: var(--text-gray);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.focus-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.focus-list li {
+  background: rgba(107, 70, 193, 0.1);
+  border: 1px solid rgba(107, 70, 193, 0.25);
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  color: var(--text-gray);
+}
+
+.focus-list li::before {
+  content: '\2022';
+  color: var(--light-purple);
+  margin-right: 0.5rem;
 }
 
 @keyframes fadeInUp {

@@ -189,6 +189,22 @@
   color: var(--text-white);
 }
 
+.project-highlights {
+  margin: 1rem 0 1.5rem;
+  padding-left: 1.25rem;
+  text-align: left;
+}
+
+.project-highlights li {
+  margin-bottom: 0.55rem;
+  line-height: 1.5;
+  color: #e5e5e5;
+}
+
+.project-highlights li::marker {
+  color: #8b5cf6;
+}
+
 .project-tech {
   margin-bottom: 1.5rem;
 }

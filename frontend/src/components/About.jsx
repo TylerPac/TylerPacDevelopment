@@ -6,54 +6,91 @@ function About() {
     <div className="about-page">
       <header className="about-header">
         <h1>About Me</h1>
-        <p>Driven by Curiosity | Built through Experience</p>
+        <p>Backend Engineer | Full-Stack Builder | Infrastructure-Focused</p>
       </header>
-      {/* Semantic sections keep content grouped and easier to style/read. */}
-      <div className="background-section">
-        <h2>My Journey</h2>
-        <p>
-          I'm a <strong>Software Engineer</strong> with a comprehensive background in full-stack development, systems
-          architecture, and deployment automation. I have a <strong>Bachelor of Applied Science in Computing
-          Technology and Software Development</strong>, equipping me with both theoretical knowledge and practical
-          experience across modern software ecosystems.
-        </p>
-        <p>
-          My expertise spans a wide range of technologies including <strong>React</strong>, <strong>Spring Boot</strong>,
-          <strong>MySQL</strong>, <strong>Docker</strong>, <strong>Kubernetes</strong>, and <strong>Jenkins</strong>. I have
-          experience designing and deploying scalable applications, streamlining CI/CD pipelines, and implementing
-          infrastructure solutions that support long-term growth and maintainability.
-        </p>
-      </div>
 
-      <div className="philosophy-section">
-        <h2>Technical Philosophy</h2>
+      <section className="about-section">
+        <h2>Who I Am</h2>
         <p>
-          Beyond formal projects, I love exploring technology hands-on, whether it's setting up a home lab,
-          automating workflows with <strong>n8n</strong>, creating mods for games like DayZ and Unreal Engine, or
-          optimizing pipelines and systems for performance and resilience. I'm constantly building, refining, and
-          learning.
+          I am a <strong>software engineer</strong> focused on backend development, full-stack applications, and
+          production-ready infrastructure. Throughout my software engineering journey, I have built software ranging from Java web
+          applications and RESTful APIs to automated deployment pipelines and distributed systems.
         </p>
         <p>
-          What drives me most is problem-solving. I enjoy diving deep into complex systems, thinking through design
-          patterns, and writing clean, efficient code that delivers real-world impact. Whether collaborating on a
-          team or working independently, I bring persistence, attention to detail, and a solutions-first mindset.
+          As founder of <strong>OverKill Development</strong>, I have led teams of <strong>4-5 developers</strong>,
+          mentored <strong>12-15 aspiring engineers</strong>, and built systems supporting <strong>10,000+ players</strong> across active server communities. I enjoy solving complex engineering problems and building platforms that
+          are scalable, maintainable, and reliable.
         </p>
-      </div>
+      </section>
 
-      <div className="goals-section">
-        <h2>What I'm Looking For</h2>
+      <section className="about-section">
+        <h2>Engineering Philosophy</h2>
         <p>
-          I'm actively seeking opportunities where I can contribute to impactful projects, collaborate with
-          innovative teams, and apply my skills to drive measurable results. I'm particularly interested in roles
-          that allow me to grow while making meaningful contributions, ideally with teams that value innovation,
-          continuous improvement, and a deep respect for good engineering.
+          I enjoy building systems end-to-end, from backend APIs and relational data models to Docker-based
+          infrastructure, CI/CD pipelines, and deployment automation. My best projects combine software engineering
+          with infrastructure design to improve reliability, reduce manual operations, and simplify complex workflows.
         </p>
         <p>
-          Thank you for your time, for more info <a href="/projects" className="highlight-link">check out my
-          work</a>, <a href="/resume" className="highlight-link">view my resume</a>, or <a href="/contact"
-          className="highlight-link">reach out</a> if you'd like to connect.
+          I am continuously learning through hands-on work, whether building production-style web applications,
+          operating self-hosted services, supporting research infrastructure with FSEC/UCF, or exploring distributed
+          systems and AI-backed tooling.
         </p>
-      </div>
+      </section>
+
+      <section className="highlights-section">
+        <h2>Engineering Highlights</h2>
+        <div className="highlights-grid">
+          <article className="highlight-card">
+            <h3>10,000+</h3>
+            <p>Players Supported</p>
+          </article>
+          <article className="highlight-card">
+            <h3>50+</h3>
+            <p>Software Projects</p>
+          </article>
+          <article className="highlight-card">
+            <h3>20+</h3>
+            <p>Containerized Services</p>
+          </article>
+          <article className="highlight-card">
+            <h3>12-15</h3>
+            <p>Developers Mentored</p>
+          </article>
+          <article className="highlight-card">
+            <h3>4+</h3>
+            <p>Years Building Software</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="about-section">
+        <h2>Outside of Work</h2>
+        <p>
+          Outside of professional work, I continue building personal projects that sharpen my engineering skillset.
+          My home lab operates as a production-style environment where I run containerized applications, AI services,
+          Git hosting, networking tools, and automation workflows.
+        </p>
+        <p>
+          I actively maintain personal open-source projects, experiment with new technologies, and continuously refine my development workflow to stay practical, fast, and reliable in real-world environments.
+        </p>
+      </section>
+
+      <section className="focus-section">
+        <h2>Current Focus</h2>
+        <ul className="focus-list">
+          <li>Backend Engineering with Java and Spring Boot</li>
+          <li>Distributed Systems and Infrastructure</li>
+          <li>Self-Hosted AI Platforms</li>
+          <li>Containerized Deployments</li>
+          <li>Cloud-Native Development</li>
+          <li>Performance Optimization</li>
+        </ul>
+        <p>
+          To learn more, <a href="/projects" className="highlight-link">explore my projects</a>,
+          <a href="/resume" className="highlight-link"> view my resume</a>, or
+          <a href="/contact" className="highlight-link"> reach out</a> to connect.
+        </p>
+      </section>
     </div>
   );
 }

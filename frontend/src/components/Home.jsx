@@ -16,22 +16,22 @@ function Home() {
       <header className="App-header">
         <div className="hero-section">
           <h1>Tyler Pac</h1>
-          <p className="tagline">Software Engineer | DevOps Specialist | Full-Stack Developer</p>
+          <p className="tagline">Software Engineer</p>
         </div>
         <div className="intro-message">
           <p>
-            Graduated with my B.A.S. in Computing Technology and Software Development. I found my passion in coding 4
-            years ago and have been pursuing it ever since.
+            Building production-ready backend systems, full-stack applications, and self-hosted infrastructure with a focus on scalable architecture, automation, and maintainable software.
           </p>
         </div>
         <div className="home-content">
           <div className="cta-section">
             <div className="cta-buttons">
-              <Link to="/contact" className="cta-btn secondary">
+              
+              <Link to="/projects" className="cta-btn secondary">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6A2,2 0 0,0 20,4M20,18H4V8L12,13L20,8V18M20,6L12,11L4,6V6H20V6Z" />
+                  <path d="M10,4L12,6H20A2,2 0 0,1 22,8V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4H10M4,8V18H20V8H4Z" />
                 </svg>
-                Contact Me
+                View Projects
               </Link>
 
               <button onClick={handleResumeView} className="cta-btn secondary">
@@ -40,6 +40,15 @@ function Home() {
                 </svg>
                 View Resume
               </button>
+
+              <Link to="/contact" className="cta-btn secondary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6A2,2 0 0,0 20,4M20,18H4V8L12,13L20,8V18M20,6L12,11L4,6V6H20V6Z" />
+                </svg>
+                Contact Me
+              </Link>
+
+
             </div>
           </div>
         </div>
