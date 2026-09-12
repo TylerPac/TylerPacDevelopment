@@ -11,10 +11,12 @@ pipeline {
                       command: ["sleep"]
                       args: ["99d"]
                       securityContext:
-                        # Kaniko needs to run as root to recreate arbitrary file
-                        # ownership/permissions while unpacking base image layers
-                        # (e.g. nginx:alpine) - its non-root default breaks this.
+                        # Kaniko fakes being a container runtime (builds the image by
+                        # manipulating its own rootfs), which needs syscalls a default
+                        # restricted/seccomp'd container isn't allowed to make - hence
+                        # "permission denied" with zero kaniko-level logging around it.
                         runAsUser: 0
+                        privileged: true
                       volumeMounts:
                         - name: ghcr-docker-config
                           mountPath: /kaniko/.docker
