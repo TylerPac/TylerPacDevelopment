@@ -1,29 +1,99 @@
 pipeline {
-    agent any
+    agent {
+        kubernetes {
+            yaml '''
+                apiVersion: v1
+                kind: Pod
+                spec:
+                  containers:
+                    - name: kaniko
+                      image: gcr.io/kaniko-project/executor:debug
+                      command: ["sleep"]
+                      args: ["99d"]
+                      volumeMounts:
+                        - name: ghcr-docker-config
+                          mountPath: /kaniko/.docker
+                    - name: git
+                      image: alpine/git:2.45.2
+                      command: ["sleep"]
+                      args: ["99d"]
+                      env:
+                        - name: GH_TOKEN
+                          valueFrom:
+                            secretKeyRef:
+                              name: github-pat
+                              key: token
+                  volumes:
+                    - name: ghcr-docker-config
+                      secret:
+                        secretName: ghcr-docker-config
+                        items:
+                          - key: .dockerconfigjson
+                            path: config.json
+            '''
+        }
+    }
+
+    environment {
+        IMAGE = "ghcr.io/tylerpac/tylerpac-frontend"
+    }
 
     stages {
-        stage('Build Frontend') {
+        stage('Checkout') {
             steps {
-                echo "🔧 Building frontend assets (Docker will build the image)"
-                sh 'docker compose build --pull frontend'
+                container('git') {
+                    checkout scm
+                }
             }
         }
 
-        stage('Deploy with Docker Compose') {
+        stage('Build & Push Image') {
             steps {
-                echo "🚀 Starting frontend via Docker Compose..."
-                sh 'docker compose down || true'
-                sh 'docker compose up -d --no-deps --force-recreate frontend'
+                container('kaniko') {
+                    sh '''
+                        SHORT_SHA=$(echo "$GIT_COMMIT" | cut -c1-7)
+                        /kaniko/executor \
+                            --context=dir://$(pwd)/frontend \
+                            --dockerfile=Dockerfile \
+                            --destination=$IMAGE:$SHORT_SHA \
+                            --destination=$IMAGE:latest
+                    '''
+                }
+            }
+        }
+
+        stage('Update GitOps repo') {
+            steps {
+                container('git') {
+                    sh '''
+                        SHORT_SHA=$(echo "$GIT_COMMIT" | cut -c1-7)
+
+                        git clone https://x-access-token:$GH_TOKEN@github.com/TylerPac/VPSInfrastructure.git infra
+                        cd infra/manifests/tylerpac
+
+                        sed -i "s#image: ghcr.io/tylerpac/tylerpac-frontend:.*#image: ghcr.io/tylerpac/tylerpac-frontend:$SHORT_SHA#" deployment.yaml
+
+                        git config user.email "jenkins@tylerpac.dev"
+                        git config user.name "Jenkins"
+
+                        if git diff --quiet; then
+                            echo "No change to deploy."
+                        else
+                            git commit -am "Deploy tylerpac-frontend $SHORT_SHA"
+                            git push
+                        fi
+                    '''
+                }
             }
         }
     }
 
     post {
         success {
-            echo "✅ Deployment successful."
+            echo "Built ${IMAGE}:latest and updated VPSInfrastructure - Argo CD will roll it out."
         }
         failure {
-            echo "❌ Deployment failed."
+            echo "Pipeline failed."
         }
     }
 }
