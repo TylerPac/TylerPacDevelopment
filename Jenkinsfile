@@ -58,6 +58,7 @@ pipeline {
                     sh '''
                         SHORT_SHA=$(echo "$GIT_COMMIT" | cut -c1-7)
                         /kaniko/executor \
+                            --verbosity=debug \
                             --context=dir://$(pwd)/frontend \
                             --dockerfile=Dockerfile \
                             --destination=$IMAGE:$SHORT_SHA \
