@@ -10,6 +10,11 @@ pipeline {
                       image: gcr.io/kaniko-project/executor:debug
                       command: ["sleep"]
                       args: ["99d"]
+                      securityContext:
+                        # Kaniko needs to run as root to recreate arbitrary file
+                        # ownership/permissions while unpacking base image layers
+                        # (e.g. nginx:alpine) - its non-root default breaks this.
+                        runAsUser: 0
                       volumeMounts:
                         - name: ghcr-docker-config
                           mountPath: /kaniko/.docker
