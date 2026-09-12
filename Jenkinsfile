@@ -69,7 +69,7 @@ pipeline {
                         SHORT_SHA=$(echo "$GIT_COMMIT" | cut -c1-7)
 
                         git clone https://x-access-token:$GH_TOKEN@github.com/TylerPac/VPSInfrastructure.git infra
-                        cd infra/manifests/tylerpac
+                        cd infra/manifests/tylerpacdevelopment
 
                         sed -i "s#image: ghcr.io/tylerpac/tylerpac-frontend:.*#image: ghcr.io/tylerpac/tylerpac-frontend:$SHORT_SHA#" deployment.yaml
 
